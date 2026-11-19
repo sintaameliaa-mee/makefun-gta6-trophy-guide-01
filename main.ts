@@ -1,61 +1,50 @@
-/* Leonida Trophy Guide — entrypoint.
-   Copies app/ and screenshots/ from this repository into the output
-   directory and writes /output/dossier.json with buildDossier from the
-   kit's vendor library. The output directory itself is never removed:
-   on the grader it is a mounted volume, so only its contents are emptied.
-   Runs deterministically: two runs write the same bytes. */
-
-import { buildDossier } from './vendor/makefun-frontend.ts';
-import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
+/* Leonida Trophy Atlas — entrypoint.
+ *
+ * Copies the static app (app/) and the screenshots (screenshots/) into the
+ * output directory, then writes dossier.json with the kit's buildDossier.
+ * Deterministic: running twice produces identical bytes.
+ *
+ * Node 22 stdlib only. Run with:
+ *   MAKEFUN_OUTPUT_DIR=/tmp/out node main.ts
+ * (or leave MAKEFUN_OUTPUT_DIR unset to write to /output, the grader default)
+ */
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildDossier } from './vendor/makefun-frontend.ts';
 
 const REPO_ROOT = dirname(fileURLToPath(import.meta.url));
-const OUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const OUT_DIR = process.env.MAKEFUN_OUTPUT_DIR || '/output';
 
-const DOSSIER_CAPS = {
-  text_max_bytes: 163840,
-  screenshots: { max: 4, max_bytes: 256 * 1024 },
-  app_max_files: 993,
-  app_max_bytes: 48 * 1024 * 1024,
-  app_path_max_bytes: 1000,
-};
-
-function emptyContents(dir: string): void {
-  mkdirSync(dir, { recursive: true });
-  for (const child of readdirSync(dir)) {
-    rmSync(join(dir, child), { recursive: true, force: true });
-  }
-}
-
-function copyTree(src: string, dest: string): void {
-  mkdirSync(dest, { recursive: true });
-  for (const child of readdirSync(src)) {
-    const from = join(src, child);
-    const to = join(dest, child);
-    const st = statSync(from);
-    if (st.isDirectory()) {
-      copyTree(from, to);
-    } else if (st.isFile()) {
-      copyFileSync(from, to);
-    } else {
-      throw new Error(`main.ts: refusing to copy non-regular entry ${from}`);
-    }
+/* Empty the output directory's CONTENTS only — never remove the directory
+ * itself: on the grader /output is a mount point and removing it fails. */
+function emptyDirContents(dir: string): void {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    rmSync(join(dir, entry.name), { recursive: true, force: true });
   }
 }
 
 function main(): void {
-  const appSrc = join(REPO_ROOT, 'app');
-  const shotsSrc = join(REPO_ROOT, 'screenshots');
-  if (!existsSync(appSrc)) throw new Error('main.ts: app/ is missing from the repository');
-  if (!existsSync(shotsSrc)) throw new Error('main.ts: screenshots/ is missing from the repository');
+  mkdirSync(OUT_DIR, { recursive: true });
+  emptyDirContents(OUT_DIR);
 
-  emptyContents(OUT_DIR);
-  copyTree(appSrc, join(OUT_DIR, 'app'));
-  copyTree(shotsSrc, join(OUT_DIR, 'screenshots'));
+  cpSync(join(REPO_ROOT, 'app'), join(OUT_DIR, 'app'), { recursive: true });
 
-  const dossier = buildDossier(OUT_DIR, DOSSIER_CAPS);
-  writeFileSync(join(OUT_DIR, 'dossier.json'), dossier);
+  const screenshotsDir = join(REPO_ROOT, 'screenshots');
+  if (existsSync(screenshotsDir)) {
+    cpSync(screenshotsDir, join(OUT_DIR, 'screenshots'), { recursive: true });
+  }
+
+  /* Caps from this bounty's RULES.txt. */
+  const dossier = buildDossier(OUT_DIR, {
+    text_max_bytes: 163840,
+    screenshots: { max: 4, max_bytes: 262144 },
+    app_max_files: 993,
+    app_max_bytes: 50331648,
+    app_path_max_bytes: 1000,
+  });
+  writeFileSync(join(OUT_DIR, 'dossier.json'), dossier, 'utf8');
+  console.log('Wrote dossier.json to ' + OUT_DIR);
 }
 
 main();

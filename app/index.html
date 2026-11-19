@@ -3,97 +3,169 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Trophy Guide — GTA VI (PS5)</title>
-<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: cited guides, platinum roadmap, missable flags, checklist, export and import.">
+<title>Leonida Trophy Atlas — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, cited guides, a platinum roadmap and a saved checklist.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="hero">
-  <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
-  <h1>Leonida Trophy Guide</h1>
-  <p class="lede">All 55 trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — each with its official name, description and grade, a guide in our own words, and the source it comes from. Tick trophies off as you earn them; your progress stays in this browser.</p>
-  <div class="progress" id="progress-wrap" role="status" aria-live="polite">
-    <div class="progress-top">
-      <span id="progress-text">0 of 55 earned</span>
-      <span id="progress-pct">0%</span>
+  <div class="hero-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+    <h1>Leonida Trophy Atlas</h1>
+    <p class="tagline">All 55 trophies — official names, descriptions and grades, a cited guide
+    for each one, a platinum roadmap, and a checklist that saves your progress.
+    Works fully offline; no account, no network.</p>
+    <div class="progress-wrap" id="progressWrap" aria-live="polite">
+      <div class="progress-line">
+        <strong id="progressText">0 / 55 trophies earned</strong>
+        <span id="pointsText">0 / 1,350 points</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-grades" id="progressGrades"></div>
     </div>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <p class="progress-sub" id="grade-counts"></p>
   </div>
-  <p class="facts" id="facts-line"></p>
 </header>
 
 <main>
-  <section class="controls" aria-label="Tracker controls">
-    <div class="controls-row">
-      <label class="search-label" for="search">Search
-        <input id="search" type="search" placeholder="Search a trophy, mission or guide…" autocomplete="off">
-      </label>
-      <label class="grade-label" for="grade-filter">Grade
-        <select id="grade-filter">
-          <option value="">All grades</option>
-          <option value="platinum">Platinum</option>
-          <option value="gold">Gold</option>
-          <option value="silver">Silver</option>
-          <option value="bronze">Bronze</option>
-        </select>
-      </label>
-      <label class="grade-label" for="earned-filter">Show
-        <select id="earned-filter">
-          <option value="all">All trophies</option>
-          <option value="earned">Earned</option>
-          <option value="remaining">Not earned yet</option>
-        </select>
-      </label>
-      <label class="spoiler-label" for="spoiler-toggle">
-        <input id="spoiler-toggle" type="checkbox">
-        Hide story spoilers until earned
-      </label>
+  <section class="roadmap" id="roadmap" aria-labelledby="roadmapHeading">
+    <h2 id="roadmapHeading">Platinum roadmap — about 200 hours, one playthrough</h2>
+    <p class="roadmap-intro">All 55 trophies unlock in single player. There are no online trophies,
+    no difficulty trophies and no mission medals. There is <strong>no mission
+    replay and no New Game Plus</strong>, so keep a manual save at the start of
+    every chapter and one before the final mission (15 manual slots plus one
+    autosave). <strong>Cheats disable trophies and saving</strong> — keep them
+    off your trophy save. Sources: PowerPyx, GTABase, Output Lag.</p>
+
+    <div class="missable-box" role="alert">
+      <h3>⚠ The one missable trophy: Positive Mental Attitude</h3>
+      <p>Every launch guide flags the same single risk. In <strong>Chapter 1</strong>,
+      after the mission <em>Down to Earth</em>, talk to Lucia in the kitchen in the
+      morning — she says she is going to meditate, heads to the balcony of Jason's
+      house, and you follow her and choose <strong>Accept</strong>. That balcony
+      meditation disappears after Chapter 1, and it is unconfirmed whether the
+      trophy strictly needs it — so do it anyway, and keep a Chapter 1 save until
+      the trophy pops. Sources: PowerPyx, GTABase, KeenGamer, Output Lag.</p>
     </div>
-    <div class="chips" id="filters" role="group" aria-label="Filter trophies by kind"></div>
-    <div class="controls-row actions-row">
-      <button id="export-btn" type="button">Export progress</button>
-      <button id="import-btn" type="button">Import progress</button>
-      <input id="import-file" type="file" accept="application/json,.json" hidden>
-      <button id="reset-btn" type="button">Reset checklist</button>
-      <span class="saved-note" id="saved-note">Progress saves automatically in this browser.</span>
+
+    <ol class="stages">
+      <li class="stage">
+        <h3>Stage 1 — Finish the story <span class="stage-time">60–80 hours</span></h3>
+        <p>Play the story through Chapters 1–4 to the final mission. Along the way:
+        do the Chapter 1 balcony meditation; start stranger and character mission
+        chains as soon as they unlock (some may have windows tied to story progress);
+        scan unfamiliar vehicles and animals with WAiNK as you travel — progress made
+        during the story already counts toward the 100% checklist, even though the
+        checklist itself only appears after the credits.</p>
+        <p class="stage-trophies" data-stage="1"></p>
+      </li>
+      <li class="stage">
+        <h3>Stage 2 — The 100% checklist <span class="stage-time">about 100 hours</span></h3>
+        <p>After the credits, open <strong>Progress &gt; Stats &gt; 100% Completion</strong>
+        and work the 35-item checklist. It is lenient — roughly 60% true completion.
+        Required in full: all robberies (39 Gang Operations, 22 Bank Jobs, 7 Payday
+        Loan Jobs, 8 bank vaults), 33 underwater discoveries, all 42 Shooting Range
+        gold medals, all drone races and Bret's quests. The rest is partial: 70 of 80
+        challenges, 300 of 397 stunts, 15 of 18 card sets, 200 of 277 vehicles
+        scanned, 100 of 255 animals studied, 15 of 18 meditations. Most trophies pop
+        along the way. Sources: PowerPyx, GTABase, EGamers, CryptoGames.</p>
+        <p class="stage-trophies" data-stage="2"></p>
+      </li>
+      <li class="stage">
+        <h3>Stage 3 — Cleanup and the platinum <span class="stage-time">10–20 hours</span></h3>
+        <p>Finish the remaining stranger strands (8 for Strangers &amp; Freaks), the
+        leftover miscellaneous trophies, and any guides marked unconfirmed once the
+        community verifies them. When the last one pops, <strong>Vice Got a Price!</strong>
+        — the platinum — is yours.</p>
+        <p class="stage-trophies" data-stage="3"></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tracker" aria-labelledby="trackerHeading">
+    <h2 id="trackerHeading">Trophy checklist</h2>
+
+    <div class="controls">
+      <label class="search-label">Search
+        <input type="search" id="searchInput" placeholder="Search name, description or guide…" autocomplete="off">
+      </label>
+      <div class="chip-row" role="group" aria-label="Filter by kind">
+        <button class="chip active" data-kind="all" type="button">All</button>
+        <button class="chip" data-kind="story" type="button">Story</button>
+        <button class="chip" data-kind="missable" type="button">Missable</button>
+        <button class="chip" data-kind="collectibles" type="button">Collectibles</button>
+        <button class="chip" data-kind="activities" type="button">Activities</button>
+        <button class="chip" data-kind="online" type="button">Online</button>
+      </div>
+      <div class="select-row">
+        <label>Grade
+          <select id="gradeSelect">
+            <option value="all">All grades</option>
+            <option value="platinum">Platinum</option>
+            <option value="gold">Gold</option>
+            <option value="silver">Silver</option>
+            <option value="bronze">Bronze</option>
+          </select>
+        </label>
+        <label>Roadmap stage
+          <select id="stageSelect">
+            <option value="all">All stages</option>
+            <option value="1">Stage 1 — Story</option>
+            <option value="2">Stage 2 — 100% checklist</option>
+            <option value="3">Stage 3 — Cleanup</option>
+          </select>
+        </label>
+        <label>Sort
+          <select id="sortSelect">
+            <option value="official">Official order</option>
+            <option value="grade">Grade (best first)</option>
+            <option value="stage">Roadmap stage</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="spoilerToggle" checked>
+          Spoiler mode — hide story trophies until earned
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="exportBtn" type="button">Export progress (.json)</button>
+        <label class="import-label">Import progress
+          <input type="file" id="importInput" accept="application/json,.json" hidden>
+        </label>
+        <button id="resetBtn" type="button">Reset progress</button>
+        <span class="result-count" id="resultCount"></span>
+      </div>
     </div>
+
+    <p class="empty-note" id="emptyNote" hidden></p>
+    <div class="trophy-list" id="trophyList"></div>
   </section>
 
-  <section class="list-section" aria-label="Trophy checklist">
-    <h2 id="list-heading">Checklist — 55 trophies</h2>
-    <p class="list-note" id="list-note"></p>
-    <ul class="trophy-list" id="trophy-list"></ul>
-    <p class="empty" id="empty-msg" hidden>No trophies match these filters. Try clearing the search or choosing another filter.</p>
-  </section>
-
-  <section class="callout missable" id="missable-box" aria-label="Missable trophy warning">
-    <h2>⚠ The one trophy you can miss</h2>
-    <p><strong>Positive Mental Attitude</strong> (Bronze) — meditate at every spot across Leonida. The first session is Lucia&rsquo;s balcony meditation at Jason&rsquo;s house in Chapter&nbsp;1, after the mission <em>Down to Earth</em>. Do it before Chapter&nbsp;1 ends: it is the only trophy-related moment reported as possibly missable. Whether the trophy strictly needs that session is unconfirmed, so do it anyway and keep a Chapter&nbsp;1 save until the trophy pops. <span class="cite">Sources: HowToVideoGame, PowerPyx, Output Lag.</span></p>
-  </section>
-
-  <section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
-    <h2>Roadmap to the platinum</h2>
-    <p class="roadmap-intro">Five stages, in order. Story trophies pop as you play; the grind lives after the credits.</p>
-    <ol class="roadmap-list" id="roadmap-list"></ol>
-  </section>
-
-  <section class="notes" aria-label="How this guide works">
-    <h2>How this guide works</h2>
+  <section class="sources" aria-labelledby="sourcesHeading">
+    <h2 id="sourcesHeading">Sources &amp; notes</h2>
+    <p>Trophy names, descriptions and grades are the official list as published by
+    PlayStation, as listed by Exophase and PSNProfiles. Every guide is written in
+    our own words from launch-era guides, and each guide names the sources it draws
+    on. Where a method was still unconfirmed at launch, the guide says so instead
+    of guessing.</p>
     <ul>
-      <li><strong>Official list:</strong> names, descriptions and grades are as PlayStation publishes them, cross-checked by Exophase and PSNProfiles (PlanetGTA6, 18 Nov 2026). 28 of the 55 are hidden on PlayStation until earned; this guide flags them.</li>
-      <li><strong>Own words, cited:</strong> every guide is written for this page and names its sources beside it. Five trophies have no confirmed trigger yet at launch — the guide says so instead of guessing.</li>
-      <li><strong>No online trophies:</strong> all 55 are single-player. There are no difficulty trophies and no mission medals.</li>
-      <li><strong>No mission replay:</strong> keep a manual save at the start of every chapter and one from just before the final mission. Cheats disable trophies and saving.</li>
-      <li><strong>Offline:</strong> this page loads nothing from the network. Export saves your checklist as a file; import brings it back.</li>
+      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — GTA VI trophy list</a> (official names, descriptions, grades)</li>
+      <li><a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a></li>
+      <li><a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase — GTA 6 Achievements &amp; Trophies</a></li>
+      <li><a href="https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/">KeenGamer — GTA 6 Trophy Guide &amp; Platinum Roadmap</a></li>
+      <li><a href="https://outputlag.com/guides/gta-6-trophy-list/">Output Lag — GTA 6 Trophy List</a></li>
+      <li><a href="https://www.planetgta6.com/en/gta-6-trophies/">Planet GTA 6 — GTA 6 Trophies</a></li>
+      <li><a href="https://cryptogames.gg/gta-6-100-completion-checklist/">CryptoGames — GTA 6 100% Completion Checklist</a></li>
+      <li><a href="https://egamers.io/gta-6-100-completion-the-full-checklist-and-what-each-section-needs/">EGamers — GTA 6 100% Completion: The Full Checklist</a></li>
+      <li><a href="https://eso.jffk.org/gta-6-100-completion-checklist-all-35-requirements/">eso.jffk — GTA 6 100% Completion Checklist: All 35 Requirements</a></li>
     </ul>
+    <p class="disclaimer">Unofficial fan guide. Not affiliated with Rockstar Games,
+    Take-Two Interactive, Sony or PlayStation. No Rockstar logo, official artwork,
+    box art or game screenshots are used anywhere in this app. Trophy names and
+    descriptions are shown as PlayStation publishes them; all guide text is our
+    own. Progress is stored only in your browser's localStorage.</p>
   </section>
 </main>
-
-<footer>
-  <p>Unofficial fan guide. Not affiliated with, endorsed by or connected to Rockstar Games, Take-Two Interactive, Sony or PlayStation. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. No official artwork, logos or game screenshots are used here.</p>
-  <p>List sources: Exophase / PSNProfiles via PlanetGTA6; guides: PowerPyx, Output Lag, KeenGamer, HowToVideoGame, Sportskeeda, The Gamers Hub, GTAVibes, GTA Zone, EGamers. Checked 19 Nov 2026.</p>
-</footer>
 
 <script src="app.js"></script>
 </body>
