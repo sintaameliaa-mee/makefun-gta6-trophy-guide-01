@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: cited guides, platinum roadmap, missable flags, checklist, export and import.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="lede">All 55 trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — each with its official name, description and grade, a guide in our own words, and the source it comes from. Tick trophies off as you earn them; your progress stays in this browser.</p>
+  <div class="progress" id="progress-wrap" role="status" aria-live="polite">
+    <div class="progress-top">
+      <span id="progress-text">0 of 55 earned</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <p class="progress-sub" id="grade-counts"></p>
+  </div>
+  <p class="facts" id="facts-line"></p>
+</header>
+
+<main>
+  <section class="controls" aria-label="Tracker controls">
+    <div class="controls-row">
+      <label class="search-label" for="search">Search
+        <input id="search" type="search" placeholder="Search a trophy, mission or guide…" autocomplete="off">
+      </label>
+      <label class="grade-label" for="grade-filter">Grade
+        <select id="grade-filter">
+          <option value="">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="grade-label" for="earned-filter">Show
+        <select id="earned-filter">
+          <option value="all">All trophies</option>
+          <option value="earned">Earned</option>
+          <option value="remaining">Not earned yet</option>
+        </select>
+      </label>
+      <label class="spoiler-label" for="spoiler-toggle">
+        <input id="spoiler-toggle" type="checkbox">
+        Hide story spoilers until earned
+      </label>
+    </div>
+    <div class="chips" id="filters" role="group" aria-label="Filter trophies by kind"></div>
+    <div class="controls-row actions-row">
+      <button id="export-btn" type="button">Export progress</button>
+      <button id="import-btn" type="button">Import progress</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <button id="reset-btn" type="button">Reset checklist</button>
+      <span class="saved-note" id="saved-note">Progress saves automatically in this browser.</span>
+    </div>
+  </section>
+
+  <section class="list-section" aria-label="Trophy checklist">
+    <h2 id="list-heading">Checklist — 55 trophies</h2>
+    <p class="list-note" id="list-note"></p>
+    <ul class="trophy-list" id="trophy-list"></ul>
+    <p class="empty" id="empty-msg" hidden>No trophies match these filters. Try clearing the search or choosing another filter.</p>
+  </section>
+
+  <section class="callout missable" id="missable-box" aria-label="Missable trophy warning">
+    <h2>⚠ The one trophy you can miss</h2>
+    <p><strong>Positive Mental Attitude</strong> (Bronze) — meditate at every spot across Leonida. The first session is Lucia&rsquo;s balcony meditation at Jason&rsquo;s house in Chapter&nbsp;1, after the mission <em>Down to Earth</em>. Do it before Chapter&nbsp;1 ends: it is the only trophy-related moment reported as possibly missable. Whether the trophy strictly needs that session is unconfirmed, so do it anyway and keep a Chapter&nbsp;1 save until the trophy pops. <span class="cite">Sources: HowToVideoGame, PowerPyx, Output Lag.</span></p>
+  </section>
+
+  <section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="roadmap-intro">Five stages, in order. Story trophies pop as you play; the grind lives after the credits.</p>
+    <ol class="roadmap-list" id="roadmap-list"></ol>
+  </section>
+
+  <section class="notes" aria-label="How this guide works">
+    <h2>How this guide works</h2>
+    <ul>
+      <li><strong>Official list:</strong> names, descriptions and grades are as PlayStation publishes them, cross-checked by Exophase and PSNProfiles (PlanetGTA6, 18 Nov 2026). 28 of the 55 are hidden on PlayStation until earned; this guide flags them.</li>
+      <li><strong>Own words, cited:</strong> every guide is written for this page and names its sources beside it. Five trophies have no confirmed trigger yet at launch — the guide says so instead of guessing.</li>
+      <li><strong>No online trophies:</strong> all 55 are single-player. There are no difficulty trophies and no mission medals.</li>
+      <li><strong>No mission replay:</strong> keep a manual save at the start of every chapter and one from just before the final mission. Cheats disable trophies and saving.</li>
+      <li><strong>Offline:</strong> this page loads nothing from the network. Export saves your checklist as a file; import brings it back.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Unofficial fan guide. Not affiliated with, endorsed by or connected to Rockstar Games, Take-Two Interactive, Sony or PlayStation. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. No official artwork, logos or game screenshots are used here.</p>
+  <p>List sources: Exophase / PSNProfiles via PlanetGTA6; guides: PowerPyx, Output Lag, KeenGamer, HowToVideoGame, Sportskeeda, The Gamers Hub, GTAVibes, GTA Zone, EGamers. Checked 19 Nov 2026.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
